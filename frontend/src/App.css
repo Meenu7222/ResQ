@@ -1,0 +1,79 @@
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: linear-gradient(120deg, #9f6fff 0%, #6d46c5 100%);
+  margin: 0;
+  min-height: 100vh;
+}
+
+form, .dashboard, .role-select {
+  background: white;
+  max-width: 400px;
+  margin: 40px auto;
+  padding: 32px 24px;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(111,76,255,0.13);
+}
+
+h2 {
+  color: #6d46c5;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+input, select, button {
+  display: block;
+  width: 100%;
+  margin: 16px 0;
+  padding: 12px;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: 1px solid #9f6fff;
+  outline: none;
+  transition: border-color .2s;
+}
+
+input:focus, select:focus {
+  border-color: #6d46c5;
+}
+
+button {
+  background: linear-gradient(90deg, #b389ff 0%, #6d46c5 100%);
+  color: white;
+  font-weight: bold;
+  border: none;
+  box-shadow: 0 2px 8px #8d59d526;
+  cursor: pointer;
+  margin-top: 12px;
+}
+
+button:hover {
+  background: linear-gradient(90deg, #6d46c5 0%, #b389ff 100%);
+}
+
+ul {
+  padding-left: 0;
+  list-style: none;
+}
+
+li {
+  background: #f6f2ff;
+  border: 1px solid #efebff;
+  margin: 8px 0;
+  padding: 16px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+hr {
+  border: none;
+  border-top: 2px solid #e5dafc;
+  margin: 24px 0;
+}
+
+.status {
+  margin-top: 12px;
+  color: #b389ff;
+  text-align: center;
+}

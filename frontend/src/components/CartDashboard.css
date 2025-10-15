@@ -1,0 +1,93 @@
+.cart-dashboard {
+  max-width: 600px;
+  margin: 40px auto;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 7px 28px #e4c16618;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  padding: 32px;
+}
+
+.cart-dashboard h2 {
+  color: #c17f27;
+  margin-bottom: 18px;
+  text-align: center;
+}
+
+.cart-dashboard ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 15px 0;
+}
+
+.cart-dashboard li {
+  background: #fff8eb;
+  border: 1px solid #e4c16655;
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cart-dashboard .qty-btn {
+  background: #fff0d1;
+  color: #c17f27;
+  border: 1.5px solid #c17f27;
+  border-radius: 30%;
+  width: 30px;
+  height: 30px;
+  font-weight: bold;
+  font-size: 1.15rem;
+  margin: 0 7px;
+  cursor: pointer;
+  transition: background .15s;
+}
+.cart-dashboard .qty-btn:disabled {
+  opacity: .45;
+  cursor: default;
+}
+
+.cart-dashboard .remove-btn {
+  color: #ca3c0b;
+  background: none;
+  border: none;
+  font-weight: bold;
+  margin-left: 12px;
+  cursor: pointer;
+}
+
+.cart-dashboard input[type="radio"] {
+  margin-right: 7px;
+}
+
+.cart-dashboard input[type="text"] {
+  margin-left: 16px;
+  padding: 8px;
+  border: 1.2px solid #c17f27;
+  border-radius: 7px;
+  font-size: 1rem;
+}
+
+.cart-dashboard button {
+  margin-top: 15px;
+  padding: 12px 28px;
+  background: linear-gradient(90deg, #e4c166, #c17f27);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background .2s;
+}
+.cart-dashboard button:hover {
+  background: linear-gradient(90deg, #c17f27, #e4c166);
+}
+
+.cart-dashboard .status {
+  color: #c17f27;
+  font-weight: 500;
+  margin-top: 10px;
+}

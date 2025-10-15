@@ -1,0 +1,60 @@
+.seller-dashboard {
+  max-width: 500px;
+  margin: 50px auto;
+  padding: 38px 34px;
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 7px 28px #a68cff2a;
+}
+.seller-dashboard h2 {
+  color: #844ad1;
+  font-weight: bold;
+  margin-bottom: 28px;
+  text-align: center;
+}
+.food-post-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 36px;
+}
+.food-post-form input {
+  margin: 8px 0;
+  padding: 12px;
+  border-radius: 7px;
+  border: 1.5px solid #a68cff;
+  font-size: 1rem;
+  width: 100%;
+}
+.food-post-form button {
+  width: 100%;
+  margin-top: 16px;
+  padding: 13px 0;
+  background: linear-gradient(90deg, #a68cff, #6d46c5);
+  color: #fff;
+  border: none;
+  border-radius: 7px;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: background .2s;
+}
+.food-post-form button:hover {
+  background: linear-gradient(90deg, #6d46c5, #a68cff);
+}
+.food-post-form .status {
+  margin-top: 10px;
+  color: #844ad1;
+  font-weight: 600;
+}
+.seller-dashboard ul {
+  list-style: none;
+  padding: 0;
+}
+.seller-dashboard li {
+  background: #f6f1fd;
+  border: 1px solid #ded3fa;
+  border-radius: 9px;
+  padding: 13px;
+  margin-bottom: 14px;
+  font-size: 1.07rem;
+}

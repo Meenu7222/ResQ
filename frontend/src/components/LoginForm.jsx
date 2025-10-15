@@ -12,28 +12,37 @@ export default function LoginForm({ role, setUser, setView }) {
       ? 'http://localhost:5000/api/auth/admin-login'
       : 'http://localhost:5000/api/auth/login';
 
-    const resp = await fetch(url, {
-      method: 'POST',
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify(role === 'admin'
-        ? { username, password }
-        : { username, password, role }
-      ),
-    });
-    const data = await resp.json();
-    if (resp.ok) {
-      setUser(data.user || data.id);
-      setStatus('Success!');
-      if (role === 'admin') setView('adminDashboard');
-      // Else redirect buyer/seller to their dashboard...
-    } 
-    else if (role === 'seller') {
-    setView('sellerDashboard');}
-    else if (role == 'buyer'){
-      setView('buyerDashboard');
-    }
-    else {
-      setStatus(data.error || 'Login failed');
+    try {
+      const resp = await fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(role === 'admin'
+          ? { username, password }
+          : { username, password, role }
+        ),
+      });
+      // Read the response text for non-JSON errors
+      const text = await resp.text();
+
+      let data;
+      try {
+        data = JSON.parse(text);
+      } catch {
+        setStatus(`Login error: ${resp.status} - Invalid response`);
+        return;
+      }
+
+      if (resp.ok && (data.user || data.institute_id)) {
+        setUser(data.user || { institute_id: data.institute_id, username, role });
+        setStatus('Success!');
+        if (role === 'admin') setView('adminDashboard');
+        else if (role === 'seller') setView('sellerDashboard');
+        else if (role === 'buyer') setView('buyerDashboard');
+      } else {
+        setStatus(data.error || 'Login failed');
+      }
+    } catch (err) {
+      setStatus('Network error. Try again.');
     }
   };
 

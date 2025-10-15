@@ -12,7 +12,7 @@ export default function App() {
   const [role, setRole] = useState(null);
   const [user, setUser] = useState(null);
 
-  // Simplest possible routing
+  // Routing based on "view"
   if (view === 'roleSelect') return <RoleSelect setView={setView} setRole={setRole} />;
   if (view === 'login') return <LoginForm role={role} setUser={setUser} setView={setView} />;
   if (view === 'signup') return <SignupForm setView={setView} />;

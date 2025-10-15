@@ -24,6 +24,8 @@ router.post('/signup', async (req, res) => {
 // Login for buyer/seller (must be approved user)
 router.post('/login', async (req, res) => {
     const { username, password, role } = req.body;
+    console.log("Received credentials:", { username, password, role }); // <-- add this
+
     const [rows] = await pool.query('SELECT * FROM usertable WHERE username=? AND role=?', [username, role]);
     if (!rows.length) return res.status(401).json({ error: 'Invalid credentials/role' });
     const user = rows[0];

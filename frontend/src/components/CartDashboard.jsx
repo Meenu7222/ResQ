@@ -42,7 +42,7 @@ export default function CartDashboard({ user }) {
       setCheckoutStatus("Please enter delivery address for delivery partner.");
       return;
     }
-    const resp = await fetch('/api/buyer/cart/checkout', {
+    const resp = await fetch('http::/localhost:5000/api/buyer/cart/checkout', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({

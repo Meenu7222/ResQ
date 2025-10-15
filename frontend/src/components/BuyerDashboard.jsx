@@ -3,8 +3,6 @@ import './BuyerDashboard.css';
 
 export default function BuyerDashboard({ user, logout, goToCart }) {
   const [foods, setFoods] = useState([]);
-  const [search, setSearch] = useState('');
-  // For storing quantities for each food before adding to cart
   const [selectedQty, setSelectedQty] = useState({});
 
   useEffect(() => {
@@ -13,7 +11,7 @@ export default function BuyerDashboard({ user, logout, goToCart }) {
   }, []);
 
   const fetchFoods = async () => {
-    const resp = await fetch(`/api/buyer/foods?search=${encodeURIComponent(search)}`);
+    const resp = await fetch('http://localhost:5000/api/buyer/foods'); // No search param!
     const data = await resp.json();
     setFoods(data);
     // Reset selectedQty for all returned foods (default 1 per food item)
@@ -22,13 +20,10 @@ export default function BuyerDashboard({ user, logout, goToCart }) {
     setSelectedQty(newQty);
   };
 
-  const handleSearchChange = (e) => setSearch(e.target.value);
-  const handleSearchSubmit = e => { e.preventDefault(); fetchFoods(); };
-
   const changeQty = (id, delta, available) => {
     setSelectedQty(qty => ({
       ...qty,
-      [id]: Math.max(1, Math.min(qty[id] + delta, available))
+      [id]: Math.max(0, Math.min(qty[id] + delta, available))
     }));
   };
 
@@ -42,7 +37,7 @@ export default function BuyerDashboard({ user, logout, goToCart }) {
       quantity: selectedQty[food.id],
       unit_price: food.price
     };
-    const resp = await fetch('/api/buyer/cart/add', {
+    const resp = await fetch('http:://localhost:5000/api/buyer/cart/add', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload)
@@ -59,16 +54,6 @@ export default function BuyerDashboard({ user, logout, goToCart }) {
         <button onClick={logout}>Logout</button>
       </div>
       <h2>Buyer Dashboard</h2>
-      {/* Search field, submit button */}
-      <form onSubmit={handleSearchSubmit}>
-        <input
-          type="text"
-          placeholder="Search food..."
-          value={search}
-          onChange={handleSearchChange}
-        />
-        <button type="submit">Search</button>
-      </form>
       <ul>
         {foods.map(food => (
           <li key={food.id}>

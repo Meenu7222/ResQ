@@ -1,46 +1,65 @@
 .cart-dashboard {
-  max-width: 600px;
-  margin: 40px auto;
+  max-width: 500px;
+  margin: 50px auto;
   background: #fff;
-  border-radius: 14px;
-  box-shadow: 0 7px 28px #e4c16618;
+  border-radius: 18px;
+  box-shadow: 0 7px 28px #a68cff2a;
   font-family: 'Segoe UI', Arial, sans-serif;
-  padding: 32px;
+  padding: 38px 34px;
+  position: relative;
 }
 
 .cart-dashboard h2 {
-  color: #c17f27;
-  margin-bottom: 18px;
+  color: #844ad1;
+  font-weight: bold;
+  margin-bottom: 28px;
   text-align: center;
 }
 
+/* Bill-style list */
 .cart-dashboard ul {
   list-style: none;
   padding: 0;
-  margin: 0 0 15px 0;
+  margin: 0 0 20px 0;
 }
 
 .cart-dashboard li {
-  background: #fff8eb;
-  border: 1px solid #e4c16655;
-  border-radius: 8px;
-  padding: 12px;
-  margin-bottom: 10px;
+  background: #f6f1fd;
+  border: 1px solid #ded3fa;
+  border-radius: 9px;
+  padding: 13px;
+  margin-bottom: 14px;
+  display: flex;
+  flex-direction: column;
+  font-size: 1.07rem;
+}
+
+/* Bill item details (flex line) */
+.cart-dashboard .bill-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
+.cart-dashboard .bill-label {
+  color: #6d46c5;
+}
+
+.cart-dashboard .bill-value {
+  font-weight: 600;
+  color: #844ad1;
+}
+
 .cart-dashboard .qty-btn {
-  background: #fff0d1;
-  color: #c17f27;
-  border: 1.5px solid #c17f27;
+  background: #e6dbfa;
+  color: #6d46c5;
+  border: 1.5px solid #aa93ec;
   border-radius: 30%;
-  width: 30px;
-  height: 30px;
+  width: 28px;
+  height: 28px;
   font-weight: bold;
-  font-size: 1.15rem;
-  margin: 0 7px;
+  font-size: 1rem;
+  margin: 0 6px;
   cursor: pointer;
   transition: background .15s;
 }
@@ -49,6 +68,7 @@
   cursor: default;
 }
 
+/* Remove button */
 .cart-dashboard .remove-btn {
   color: #ca3c0b;
   background: none;
@@ -58,22 +78,29 @@
   cursor: pointer;
 }
 
+/* Inputs / address radio/entry */
 .cart-dashboard input[type="radio"] {
   margin-right: 7px;
 }
-
 .cart-dashboard input[type="text"] {
   margin-left: 16px;
   padding: 8px;
-  border: 1.2px solid #c17f27;
+  border: 1.2px solid #a68cff;
   border-radius: 7px;
   font-size: 1rem;
 }
 
+.cart-dashboard .status {
+  color: #844ad1;
+  font-weight: 500;
+  margin-top: 10px;
+}
+
+/* Checkout/Cart button */
 .cart-dashboard button {
   margin-top: 15px;
   padding: 12px 28px;
-  background: linear-gradient(90deg, #e4c166, #c17f27);
+  background: linear-gradient(90deg, #a68cff, #6d46c5);
   color: #fff;
   border: none;
   border-radius: 8px;
@@ -83,11 +110,5 @@
   transition: background .2s;
 }
 .cart-dashboard button:hover {
-  background: linear-gradient(90deg, #c17f27, #e4c166);
-}
-
-.cart-dashboard .status {
-  color: #c17f27;
-  font-weight: 500;
-  margin-top: 10px;
+  background: linear-gradient(90deg, #6d46c5, #a68cff);
 }
